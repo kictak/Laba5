@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laba5", "Laba5\Laba5.csproj", "{A2139A5F-7778-47AE-B6BC-717FDEA3B6F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{F4F2E7B1-4E62-4063-9612-8A1C38F2DB2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphWindowsForm", "GraphWindowsForm\GraphWindowsForm.csproj", "{AE5E00DF-8E05-45F9-80E4-674B0269293B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A2139A5F-7778-47AE-B6BC-717FDEA3B6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2139A5F-7778-47AE-B6BC-717FDEA3B6F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2139A5F-7778-47AE-B6BC-717FDEA3B6F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4F2E7B1-4E62-4063-9612-8A1C38F2DB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4F2E7B1-4E62-4063-9612-8A1C38F2DB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4F2E7B1-4E62-4063-9612-8A1C38F2DB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4F2E7B1-4E62-4063-9612-8A1C38F2DB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE5E00DF-8E05-45F9-80E4-674B0269293B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5E00DF-8E05-45F9-80E4-674B0269293B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5E00DF-8E05-45F9-80E4-674B0269293B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5E00DF-8E05-45F9-80E4-674B0269293B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
