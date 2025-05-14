@@ -1,7 +1,9 @@
 using Laba5;
 using Laba5.EquationFolder;
+using Laba5.IntegratorFolder;
 using OxyPlot;
 using OxyPlot.Series;
+using OxyPlot.WindowsForms;
 
 namespace GraphWindowsForm
 {
@@ -30,7 +32,7 @@ namespace GraphWindowsForm
             double yi = 0;
             series.Points.Clear();
             // N - количество точек в графике
-            int n = 1000;
+            int n = 100;
             // h - шаг(растояние между точками)
             double h = (x2 - x1) / n;
             for (int i = 0; i < n; i++)
@@ -48,10 +50,30 @@ namespace GraphWindowsForm
         {
             PlotModel plotModel = new PlotModel();
             LineSeries series = new LineSeries();
-            DrawFunction(-6.28, 6.28, series, new AXModuleXEquation(5));
+            Equation equation = new AXModuleXEquation(1);
+            DrawFunction(1, 1000000000, series, equation);
             plotModel.Series.Add(series);
             plotView1.Model = plotModel;
+
+            IntegratorMethodSimpson integrator = new IntegratorMethodSimpson(equation);
+            double integral = integrator.Integrate(1, 2, 100);
             plotView1.InvalidatePlot(true);
+
         }
     }
 }
+
+#region Integrator
+/*
+PlotModel plotModel = new PlotModel();
+LineSeries series = new LineSeries();
+Equation equation = new AXModuleXEquation(1);
+DrawFunction(1, 1000000, series, equation);
+plotModel.Series.Add(series);
+plotView1.Model = plotModel;
+
+Integrator... integrator = new Integrato...(equation);
+double integral = integrator.Integrate(1, 2, 1000);
+plotView1.InvalidatePlot(true);
+*/
+#endregion

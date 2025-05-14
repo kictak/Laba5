@@ -1,6 +1,4 @@
-﻿using Laba5.EquationFolder;
-
-namespace Laba5
+﻿namespace Laba5
 {
     /// <summary>
     /// Класс, представляющий квадратное уравнение

@@ -1,4 +1,4 @@
-﻿namespace Laba5.EquationFolder
+﻿namespace Laba5
 {
     public abstract class Equation
     {
