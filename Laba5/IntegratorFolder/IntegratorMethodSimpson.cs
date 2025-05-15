@@ -1,13 +1,11 @@
-﻿namespace Laba5.IntegratorFolder
+﻿#region Старый вариант до integratorBase
+/*
+namespace Laba5.IntegratorFolder
 {
     public class IntegratorMethodSimpson
     {
         private readonly Equation equation;
 
-        /// <summary>
-        /// Конструктор класса "интегратор"
-        /// </summary>
-        /// <param name="equation">интегрируемое уравнение</param>
         public IntegratorMethodSimpson(Equation equation)
         {
             //проверяем допустимость параметров:
@@ -53,6 +51,52 @@
                     sum += value * 2;// ВЕс 2 для чётных точек
             }
             return sum * (h/3);
+        }
+    }
+}
+*/
+#endregion
+//Новый вариант
+namespace Laba5.IntegratorFolder
+{
+    public class IntegratorMethodSimpson : IntegratorBase
+    {
+        public IntegratorMethodSimpson(Func<double, double> function) : base(function)
+        {
+        }
+
+        public override string MethodName => "Метод Симпсона";
+
+        public override double Integrate(double x1, double x2, int N)
+        {
+            if (x1 >= x2)
+            {
+                throw new ArgumentException("Правая граница должна быть больше левой!");
+            }
+            if (N <= 0)
+            {
+                throw new ArgumentException("N должно быть больше 0!");
+            }
+            if (N % 2 != 0)
+            {
+                throw new ArgumentException("N должно быть чётным!");
+            }
+
+            double h = (x2 - x1) / N;
+            double sum = 0;
+
+            for (int i = 0; i <= N; i++)
+            {
+                double value = function(x1 + i * h); // Используем делегат
+                if (i == 0 || i == N)
+                    sum += value * 1;
+                else if (i % 2 != 0)
+                    sum += value * 4;
+                else
+                    sum += value * 2;
+            }
+
+            return sum * (h / 3);
         }
     }
 }
