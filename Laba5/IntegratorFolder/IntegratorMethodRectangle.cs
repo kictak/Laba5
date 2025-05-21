@@ -55,26 +55,35 @@ namespace Laba5
 
 namespace Laba5.IntegratorFolder
 {
-    public class Integrator : IntegratorBase
+    public class IntegratorMethodRectangle : IntegratorBase
     {
-        public Integrator(Func<double, double> function) : base(function)
-        {
-        }
+        public IntegratorMethodRectangle(Func<double, double> function) : base(function) { }
 
         public override string MethodName => "Метод прямоугольников";
 
         public override double Integrate(double x1, double x2, int N)
         {
-            if (x1 >= x2)
-            {
-                throw new ArgumentException("Правая граница интегрирования должна быть больше левой!");
-            }
+            if (x1 >= x2) throw new ArgumentException("Правая граница должна быть больше левой!");
+            RaiseStartEvent();
+
+            DateTime startTime = DateTime.Now; // Начало измерения времени
             double h = (x2 - x1) / N;
             double sum = 0;
             for (int i = 0; i < N; i++)
             {
-                sum = sum + (function(x1 + i * h) + function(x1 + i * h)) / 2 * h;
+                double x = x1 + i * h;
+                double fx = function(x);
+                sum += fx * h;
+                RaiseStepEvent(x, fx, sum);
+                System.Threading.Thread.Sleep(100); // Задержка 100 мс
             }
+            TimeSpan duration = DateTime.Now - startTime; // Длительность
+
+            RaiseFinishEvent(sum);
+
+            // Вывод времени через событие OnFinish
+            OnFinish += (sender, e) => Console.WriteLine($"Время расчётов: {duration.TotalMilliseconds:F2} мс");
+
             return sum;
         }
     }
